@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Register</title>
+    <title>Login</title>
 </head>
 <body>
     <div class="w-screen h-screen flex items-center justify-center bg-slate-300">
-        <form method="POST" action="/controller/register.php" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-[30%]">
+        <form action="/controller/login.php" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-[30%]">
             <!-- texto -->
             <div class="pb-8 text-center">
                 <h1 class="text-xl font-bold text-blue-500">
-                    Registrese
+                    Bienvenido al Login
                 </h1>
             </div>
             <!-- icono -->
@@ -24,47 +24,20 @@
             <!-- user -->
             <div class="mb-5">
                 <label for="user" class="block text-gray-700 text-sm font-bold mb-2">Usuario</label>
-                <input type="text" name="user" id="user" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                <input type="text" name="user" id="user" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
             <!-- password -->
             <div class="mb-5">
                 <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Contraseña</label>
-                <input type="password" name="password" id="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                <input type="password" name="password" id="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
             <div class="flex items-center justify-between">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">
-                    Registrarse
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Iniciar
                 </button>
-                <a href="/view/login.html" class="text-gray-500 hover:text-blue-500">¿Ya tiene una cuenta?</a>
+                <a href="#" class="text-gray-500 hover:text-blue-500">¿Todavía no tienes una cuenta?</a>
             </div>
         </form>
     </div>
-
-    <!-- Mostrar alertas de SweetAlert -->
-    <?php
-    session_start();
-    if (isset($_SESSION['success'])) {
-        echo "<script>
-            Swal.fire({
-                icon: 'success',
-                title: '¡Éxito!',
-                text: '" . addslashes($_SESSION['success']) . "'
-            });
-        </script>";
-        unset($_SESSION['success']);
-    }
-
-    if (isset($_SESSION['error'])) {
-        echo "<script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: '" . addslashes($_SESSION['error']) . "'
-            })
-        </script>";
-        unset($_SESSION['error']);
-    }
-    ?>
 </body>
 </html>
-
